@@ -35,9 +35,8 @@ type Provider(config: TypeProviderConfig) as this =
           let display = mines.Display
           display |> Array.iteri (fun y row -> 
             sb.Append "<para>|" |> ignore
-            row |> Array.iteri (fun x c -> 
-                sb.Append c |> ignore
-                if c = ' ' then sb.Append " " |> ignore
+            row |> Array.iteri (fun x c ->                 
+                if c = ' ' then sb.Append '_' |> ignore else sb.Append c |> ignore
                 sb.Append "|" |> ignore
                 )
             sb.Append "</para>" |> ignore
